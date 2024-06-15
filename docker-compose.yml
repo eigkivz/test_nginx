@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    volumes:
+      - ./:/usr/share/nginx/html
+    expose:
+      - 80
+    ports:
+      - "80:80"
+    restart: always
+    networks:
+      - nginx_net
+
+networks:
+  nginx_net:
+    name: nginx_network
+    driver: bridge
